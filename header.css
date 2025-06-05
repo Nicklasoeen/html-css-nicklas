@@ -1,0 +1,31 @@
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  display: flex;
+  z-index: 50;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  background-color: #fff;
+  color: #000;
+
+  nav {
+    display: flex;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+
+      li a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  }
+}

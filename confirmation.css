@@ -1,0 +1,145 @@
+main {
+  margin-top: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 0 auto;
+  background: #fff;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px 0;
+}
+
+.order-confirmation-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.order-confirmation {
+  align-items: center;
+  max-width: 500px;
+  margin: 0 4rem;
+  padding: 40px 30px;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.confirmation-icon {
+  font-size: 48px;
+  color: #21554c;
+  margin-bottom: 20px;
+}
+
+.order-confirmation h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  color: #21554c;
+}
+
+.order-confirmation p {
+  color: #555;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.order-number {
+  font-weight: 600;
+  margin-top: 16px;
+  margin-bottom: 32px;
+  color: #333;
+}
+
+.secondary-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 24px;
+  border: 2px solid #21554c;
+  color: #21554c;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+  background-color: #21554c;
+  color: #fff;
+}
+
+.summary-container h2 {
+  margin-bottom: 40px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: top;
+  margin-bottom: 20px;
+}
+
+.summary-item img {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 15px;
+  background-color: #e2e2e2;
+  padding: 10px;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+
+.info-boxes {
+  margin-top: 5rem;
+}
+
+.info-box {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+
+.info-title {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.info-text {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}

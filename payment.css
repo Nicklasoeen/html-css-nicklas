@@ -1,0 +1,164 @@
+main {
+  margin-top: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 0 auto;
+  background: #fff;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px 0;
+}
+
+.form-container {
+  h1 {
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    margin-bottom: 30px;
+  }
+}
+
+.form-step {
+  margin-bottom: 2rem;
+}
+
+.form-step h3 {
+  margin-bottom: 10px;
+}
+
+.form-step input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form-step input:focus {
+  border-color: #21554c;
+  outline: none;
+}
+.payment-methods {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.payment-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.payment-option input[type="radio"] {
+  display: none;
+}
+
+.payment-option input[type="radio"]:checked + span {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.payment-option:has(input[type="radio"]:checked) {
+  border-color: #21554c;
+  background-color: #21554c;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #21554c;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #21554c;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #ffff;
+  color: #21554c;
+  border: 1px solid #21554c;
+}
+
+.summary-container h2 {
+  margin-bottom: 40px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: top;
+  margin-bottom: 20px;
+}
+
+.summary-item img {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 15px;
+  background-color: #e2e2e2;
+  padding: 10px;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+
+.info-boxes {
+  margin-top: 5rem;
+}
+
+.info-box {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+
+.info-title {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.info-text {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
