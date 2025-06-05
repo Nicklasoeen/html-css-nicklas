@@ -30,6 +30,7 @@ body {
     gap: 1rem;
     z-index: 20;
     color: #fff;
+    padding: 0 1rem;
 
     p {
       text-align: center;
@@ -37,8 +38,20 @@ body {
     }
 
     h1 {
-      font-size: 5rem;
+      font-size: 2rem;
       line-height: 1.1;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 3rem;
+      }
+    }
+    @media (min-width: 1200px) {
+      h1 {
+        font-size: 5rem;
+      }
     }
   }
 }
@@ -82,6 +95,8 @@ button.primary:hover {
   .products__intro {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
   .products__grid {
@@ -148,59 +163,55 @@ button.primary:hover {
     overflow: hidden;
 
     .adventure__card-overlay {
-      z-index: 10;
+      z-index: -5;
       position: absolute;
       inset: 0;
       background-color: rgba(0, 0, 0, 0.25);
     }
 
     .adventure__card-content {
-      z-index: 20;
-      position: absolute;
-      inset: 0;
       display: flex;
       align-items: start;
       flex-direction: column;
       justify-content: center;
       gap: 1rem;
-      padding: 0 4rem;
+      padding: 2rem;
       color: #fff;
     }
 
     h3 {
-      font-size: 28px;
+      font-size: 2rem;
     }
 
     img {
+      position: absolute;
+      inset: 0;
+      z-index: -10;
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    @media (min-width: 768px) {
+      h3 {
+        font-size: 3rem;
+      }
+      .adventure__card-content {
+        aspect-ratio: 16/9;
+        padding: 2rem 4rem;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      h3 {
+        font-size: 4rem;
+      }
     }
   }
 }
 
 .shop-hero {
   height: 30svh;
-}
-
-.adventure__card-shop {
-  aspect-ratio: 2/1;
-}
-
-.product-item__name {
-  margin-top: 4rem;
-}
-
-.product-item__color {
-  margin-top: 4rem;
-}
-
-.product-item__size {
-  margin-top: 4rem;
-}
-
-.product-item__price {
-  margin-top: 4rem;
 }
 
 footer {
