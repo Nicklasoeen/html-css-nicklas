@@ -1,6 +1,6 @@
 const API_BASE_URL = 'https://v2.api.noroff.dev/rainy-days';
 
-// Fetch all products
+// fetch products
 export async function fetchProducts() {
     try {
         const response = await fetch(`${API_BASE_URL}`);
@@ -18,7 +18,7 @@ export async function fetchProducts() {
     }
 }
 
-// Fetch single product by ID
+// fetch single product by ID
 export async function fetchProductById(id) {
     try {
         const response = await fetch(`${API_BASE_URL}/${id}`);

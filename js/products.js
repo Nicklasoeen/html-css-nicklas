@@ -4,7 +4,7 @@ import { showLoading, showError } from './utils.js';
 const productsGrid = document.querySelector(`.products__grid`);
 let allProducts = [];
 
-// Render product cards
+// render product cards
 function renderProducts (products) {
     if (products.length === 0) {
         productsGrid.innerHTML = '<p class="no-products">No products found.</p>';
@@ -68,7 +68,7 @@ function filterByCategory(category) {
     renderProducts(filtered);
 }
 
-// Search products by price range
+// search products by price range
 function filterByPrice(min, max) {
     const filtered = allProducts.filter(product => 
         product.price >= min && product.price <= max
@@ -76,7 +76,7 @@ function filterByPrice(min, max) {
     renderProducts(filtered);
 }
 
-// Search products by title
+// search products by title
 function searchByTitle(searchTerm) {
     if (!searchTerm) {
         renderProducts(allProducts);
@@ -90,7 +90,7 @@ function searchByTitle(searchTerm) {
     renderProducts(filtered);
 }
 
-// Sort products
+// sort products
 function sortProducts(sortBy) {
     let sorted = [...allProducts];
 
@@ -139,7 +139,7 @@ function setupFilters() {
         });
     });
 
-    // Search input
+    // search input
     const searchInput = document.querySelector('#search-products');
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
@@ -156,7 +156,7 @@ function setupFilters() {
     }
 }
 
-// Load and display products
+// load and display products
 async function loadProducts () {
     showLoading(productsGrid);
     try {
@@ -168,5 +168,4 @@ async function loadProducts () {
     }
 }
 
-// Initialize
 loadProducts();

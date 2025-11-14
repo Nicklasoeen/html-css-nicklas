@@ -3,7 +3,7 @@ import {showLoading, showError} from './utils.js';
 
 const productsGrid = document.querySelector('.products__grid');
 
-// Render product cards
+// render product cards
 function renderProducts(products) {
     productsGrid.innerHTML = products.map(product => `
         <div class="product__card">

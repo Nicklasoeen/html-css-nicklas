@@ -1,14 +1,14 @@
-// Show loading spinner
+// show loading spinner
 export function showLoading(container) {
     container.innerHTML = '<div class="loading">Loading products...</div>';
 }
 
-// Show error message
+// show error message
 export function showError(container, message) {
     container.innerHTML = `<div class="error">Error: ${message}</div>`;
 }
 
-// Get cart from local storage
+// get cart from local storage
 export function getCart() {
     const cart = localStorage.getItem('cart');
     return cart ? JSON.parse(cart) : [];
@@ -19,7 +19,7 @@ export function saveCart(cart) {
     localStorage.setItem(`cart`, JSON.stringify(cart));
 }
 
-// Add product to cart
+// add product to cart
 export function addToCart(product, size = `M`, color = `Black`) {
     const cart = getCart();
 
@@ -47,11 +47,11 @@ export function addToCart(product, size = `M`, color = `Black`) {
   return cart;
 }
 
-// Remove item from cart
+// remove item from cart
 export function removeFromCart(productId, size) {
     let cart = getCart();
     
-    // Find and remove the item
+    // find and remove the item
     cart = cart.filter(item => !(item.id === productId && item.size === size));
     
     saveCart(cart);

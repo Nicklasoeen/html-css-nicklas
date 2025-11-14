@@ -214,7 +214,7 @@ button.primary:hover {
   height: 30svh;
 }
 
-/* Filter controls */
+/* filter controls */
 .filter-controls {
   display: flex;
   gap: 1rem;
@@ -306,7 +306,7 @@ footer {
   }
 }
 
-/* Product Detail Page */
+/* product detail page */
 .product-detail {
   max-width: 1200px;
   margin: 2rem auto;
@@ -401,7 +401,7 @@ body:has(.product-detail) #site-header {
   border-color: #21554c;
 }
 
-/* Cart count badge */
+/* cart count badge */
 .cart-link {
   position: relative;
 }

@@ -5,10 +5,11 @@ const subtotalElement = document.querySelector('.subtotal');
 const totalElement = document.querySelector('.total-price');
 const checkoutBtn = document.querySelector('.checkout-btn');
 
-// Render cart items
+// show products in cart
 function renderCart() {
     const cart = getCart();
 
+    // check if cart is empty
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = `
             <div class="empty-cart">
@@ -24,6 +25,7 @@ function renderCart() {
 
     if (checkoutBtn) checkoutBtn.style.display = 'block';
 
+    // create HTML for each product
     cartItemsContainer.innerHTML = cart.map(item => `
         <div class="cart-item">
             <div class="cart-item__details">
@@ -63,32 +65,34 @@ function renderCart() {
     setupCartControls();
 }
 
-// Update cart summary (subtotal, total)
+// calculate and show total
 function updateCartSummary() {
     const cart = getCart();
+    
+    // sum up all products
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     
     if (subtotalElement) subtotalElement.textContent = `${subtotal} NOK`;
     if (totalElement) totalElement.textContent = `${subtotal} NOK`;
 }
 
-// Setup event listeners for quantity buttons and remove buttons
+// add click events to buttons
 function setupCartControls() {
-    // Decrease quantity
+    // minus button
     document.querySelectorAll('.quantity-btn.decrease').forEach(btn => {
         btn.addEventListener('click', () => {
             updateQuantity(btn.dataset.id, btn.dataset.size, -1);
         });
     });
 
-    // Increase quantity
+    // plus button
     document.querySelectorAll('.quantity-btn.increase').forEach(btn => {
         btn.addEventListener('click', () => {
             updateQuantity(btn.dataset.id, btn.dataset.size, 1);
         });
     });
 
-    // Remove item
+    // remove button
     document.querySelectorAll('.remove-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             removeItem(btn.dataset.id, btn.dataset.size);
@@ -96,10 +100,11 @@ function setupCartControls() {
     });
 }
 
-// Update item quantity
+// change quantity (+ or -)
 function updateQuantity(productId, size, change) {
     let cart = getCart();
     
+    // find the product
     const itemIndex = cart.findIndex(item => 
         item.id === productId && item.size === size
     );
@@ -107,7 +112,7 @@ function updateQuantity(productId, size, change) {
     if (itemIndex > -1) {
         cart[itemIndex].quantity += change;
 
-        // Remove if quantity is 0 or less
+        // remove if 0 or less
         if (cart[itemIndex].quantity <= 0) {
             cart.splice(itemIndex, 1);
         }
@@ -118,14 +123,14 @@ function updateQuantity(productId, size, change) {
     }
 }
 
-// Remove item from cart
+// delete product from cart
 function removeItem(productId, size) {
     removeFromCart(productId, size);
     renderCart();
     updateCartCount();
 }
 
-// Update cart count in header
+// update number in cart badge
 function updateCartCount() {
     const cart = getCart();
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -137,5 +142,6 @@ function updateCartCount() {
     }
 }
 
+// start when page loads
 renderCart();
 updateCartCount();
