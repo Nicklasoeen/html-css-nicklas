@@ -446,3 +446,18 @@ body:has(.product-detail) #site-header {
     opacity: 1;
   }
 }
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+}
+
+.error {
+  text-align: center;
+  padding: 3rem;
+  background: #ffe6e6;
+  color: #cc0000;
+  border-radius: 8px;
+  margin: 2rem;
+}

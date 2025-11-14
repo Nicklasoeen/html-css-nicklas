@@ -4,16 +4,17 @@ const API_BASE_URL = 'https://v2.api.noroff.dev/rainy-days';
 export async function fetchProducts() {
     try {
         const response = await fetch(`${API_BASE_URL}`);
-
+        
+        // check if request was successful
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`API returned status ${response.status}`);
         }
-
-        const json = await response.json();
-        return json.data; // Return the data array directly
-
+        
+        const result = await response.json();
+        return result.data || [];
+        
     } catch (error) {
-        console.error(`Error fetching products:`, error);
+        console.error('Error fetching products:', error);
         throw error;
     }
 }

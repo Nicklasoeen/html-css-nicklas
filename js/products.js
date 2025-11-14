@@ -159,11 +159,20 @@ function setupFilters() {
 // load and display products
 async function loadProducts () {
     showLoading(productsGrid);
+    
     try {
         allProducts = await fetchProducts();
+        
+        // check if we got any products back
+        if (!allProducts || allProducts.length === 0) {
+            throw new Error('No products available');
+        }
+        
         renderProducts(allProducts);
         setupFilters();
+        
     } catch (error) {
+        console.error('Error loading products:', error);
         showError(productsGrid, `Failed to load products. Please try again later.`);
     }
 }
