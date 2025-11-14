@@ -41,6 +41,43 @@
             <p>Page 1/4</p>
           </div>
         </div>
+        <div class="filter-controls">
+          <!-- Search -->
+          <input
+            type="text"
+            id="search-products"
+            placeholder="Search products..."
+            class="search-input"
+          />
+
+          <!-- Gender filter -->
+          <div class="gender-filter">
+            <button data-gender="all" class="filter-btn active">All</button>
+            <button data-gender="Male" class="filter-btn">Male</button>
+            <button data-gender="Female" class="filter-btn">Female</button>
+          </div>
+
+          <!-- Category filter -->
+          <div class="category-filter">
+            <button data-category="all" class="filter-btn active">
+              All Categories
+            </button>
+            <button data-category="jackets" class="filter-btn">Jackets</button>
+            <button data-category="coats" class="filter-btn">Coats</button>
+            <button data-category="waterproof" class="filter-btn">
+              Waterproof
+            </button>
+          </div>
+
+          <!-- Sort dropdown -->
+          <select id="sort-products" class="sort-select">
+            <option value="">Sort by</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="name-az">Name: A-Z</option>
+            <option value="name-za">Name: Z-A</option>
+          </select>
+        </div>
         <div class="products__grid">
           <div class="product__card">
             <a href="trondheim-trackcoat.html">
@@ -190,5 +227,6 @@
         </ul>
       </div>
     </footer>
+    <script type="module" src="js/products.js"></script>
   </body>
 </html>
