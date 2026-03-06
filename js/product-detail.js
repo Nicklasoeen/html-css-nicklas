@@ -113,35 +113,5 @@ async function loadProduct() {
     }
 }
 
-async function loadProductDetails() {
-    const productId = getProductIdFromUrl();
-    const productContainer = document.querySelector('.product-detail__container');
-    
-    showLoading(productContainer);
-    
-    try {
-        const products = await fetchProducts();
-        const product = products.find(p => p.id === productId);
-
-        if (!product) {
-            throw new Error('Product not found');
-        }
-
-        renderProduct(product);
-        setupSizeSelector();
-        setupAddToCartButton(product);
-        
-    } catch (error) {
-        console.error('Error:', error);
-        showError(productContainer, 'Could not load product. Redirecting to shop...');
-        
-        // send til shop etter 3 sekunder
-        setTimeout(() => {
-            window.location.href = 'shop.html';
-        }, 3000);
-    }
-}
-
 loadProduct();
 updateCartCount();
-loadProductDetails();
