@@ -1,5 +1,5 @@
 import { fetchProducts } from './api.js';
-import { showLoading, showError } from './utils.js';
+import { showLoading, showError, addToCart } from './utils.js';
 
 const productsGrid = document.querySelector(`.products__grid`);
 let allProducts = [];
@@ -23,9 +23,53 @@ function renderProducts (products) {
             <p class="meta__sex">${product.gender || `Unisex`}</p>
         </div>
         <p>${product.description || `Available now`}</p>
+        <button class="add-to-cart-btn primary" data-product-id="${product.id}">Add to Cart</button>
         </div>
         </div>
     `).join('');
+    
+    setupAddToCartButtons(products);
+}
+
+// setup add to cart button listeners
+function setupAddToCartButtons(products) {
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const productId = e.target.dataset.productId;
+            const product = products.find(p => p.id === productId);
+            
+            if (product) {
+                addToCart(product, 'M'); // Default size M
+                showAddedToCartMessage(e.target);
+                updateCartCount();
+            }
+        });
+    });
+}
+
+// message when item is added
+function showAddedToCartMessage(button) {
+    const originalText = button.textContent;
+    button.textContent = '✓ Added!';
+    button.style.backgroundColor = '#28a745';
+    
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.style.backgroundColor = '';
+    }, 1500);
+}
+
+// update cart count in header
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartBadge = document.querySelector('.cart-count');
+    
+    if (cartBadge) {
+        cartBadge.textContent = totalItems;
+        cartBadge.style.display = totalItems > 0 ? 'block' : 'none';
+    }
 }
 
 // Filter products by gender
@@ -178,3 +222,4 @@ async function loadProducts () {
 }
 
 loadProducts();
+updateCartCount(); // Initialize cart count on page load
